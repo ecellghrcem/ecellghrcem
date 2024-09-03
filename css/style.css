@@ -1,7 +1,7 @@
 /********** Template CSS **********/
 :root {
-    --primary: #2124B1;
-    --secondary: #4777F5;
+    --primary: #559E54;
+    --secondary: #65ef63;
     --light: #F7FAFF;
     --dark: #1D1D27;
 }
@@ -96,7 +96,7 @@ h6,
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
-    color: var(--secondary) !important;
+    color:  #65ef63 !important;
 }
 
 .navbar-light .navbar-brand h1 {
@@ -238,7 +238,7 @@ h6,
     height: 10px;
     top: 2px;
     left: 0;
-    background: rgba(33, 66, 177, .5);
+    background: #559E54;
 }
 
 .section-title h6::after {
@@ -359,6 +359,8 @@ h6,
     position: relative;
     transition: .5s;
     z-index: 1;
+    height: 325px;
+    width: 210px;
 }
 
 .team-item::after {
