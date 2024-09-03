@@ -359,6 +359,8 @@ h6,
     position: relative;
     transition: .5s;
     z-index: 1;
+    height: 325px;
+    width: 210px;
 }
 
 .team-item::after {
