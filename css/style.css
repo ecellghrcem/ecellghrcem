@@ -187,8 +187,8 @@ h6,
         url(../img/bg-dot.png),
         url(../img/bg-dot.png),
         url(../img/bg-round.png),
-        url(../img/bg-tree.png),
-        url(../img/bg-bottom-hero.png);
+        url(../img/bg-tree.png);
+        /* url(../img/bg-bottom-hero.png); */
     background-position:
         10px 10px,
         bottom 190px right 10px,
