@@ -421,15 +421,14 @@ h6,
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
+    width: 90%;
     height: 100%;
     padding: 30px;
     top: 0;
     left: 0;
-    background: var(--primary);
     transition: .5s;
     z-index: 1;
-    opacity: 0;
+    opacity: 0;  
 }
 
 .portfolio-item:hover .portfolio-overlay {
