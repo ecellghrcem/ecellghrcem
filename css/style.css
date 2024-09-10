@@ -1,9 +1,9 @@
 /********** Template CSS **********/
 :root {
-    --primary: #559E54;
-    --secondary: #65ef63;
+    --primary: #ff8a00;
+    --secondary: #ff8a00;
     --light: #F7FAFF;
-    --dark: #1D1D27;
+    --dark: #ff8a00
 }
 
 
@@ -96,7 +96,7 @@ h6,
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
-    color:  #65ef63 !important;
+    color:  #ff8a00 !important;
 }
 
 .navbar-light .navbar-brand h1 {
@@ -238,7 +238,7 @@ h6,
     height: 10px;
     top: 2px;
     left: 0;
-    background: #559E54;
+    background: #000000;
 }
 
 .section-title h6::after {
@@ -392,31 +392,31 @@ h6,
 }
 
 
-/*** Project Portfolio ***/
-#portfolio-flters .btn {
+/*** Project events ***/
+#events-flters .btn {
     position: relative;
     display: inline-block;
     margin: 10px 4px 0 4px;
     transition: .5s;
 }
 
-#portfolio-flters .btn::after {
+#events-flters .btn::after {
     position: absolute;
     content: "";
     right: -1px;
     bottom: -1px;
     border-left: 20px solid transparent;
     border-right: 0 solid transparent;
-    border-bottom: 50px solid #FFFFFF;
+    border-bottom: 50px solid #000;
 }
 
-#portfolio-flters .btn:hover,
-#portfolio-flters .btn.active {
+#events-flters .btn:hover,
+#events-flters .btn.active {
     color: var(--light);
     background: var(--primary);
 }
 
-.portfolio-overlay {
+.events-overlay {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -431,11 +431,11 @@ h6,
     opacity: 0;  
 }
 
-.portfolio-item:hover .portfolio-overlay {
+.events-item:hover .events-overlay {
     opacity: 1;
 }
 
-.portfolio-item .btn {
+.events-item .btn {
     position: absolute;
     width: 90px;
     height: 90px;
@@ -451,7 +451,7 @@ h6,
     z-index: 2;
 }
 
-.portfolio-item:hover .btn {
+.events-item:hover .btn {
     opacity: 1;
     transition-delay: .15s;
 }
