@@ -207,6 +207,23 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+     <!-- Firebase and Form Submission -->
+     <script src="./firebaseConfig.js" type="module"></script>
+     <script type="module">
+         import { signUpUser } from './firebaseConfig.js';
+ 
+         document.getElementById('sign-up-form').addEventListener('submit', async (e) => {
+             e.preventDefault();
+             
+             const name = document.getElementById('name').value;
+             const regNo = document.getElementById('regNo').value;
+             const email = document.getElementById('email').value;
+             const password = document.getElementById('password').value;
+ 
+             // Call the signUpUser function to handle registration
+             await signUpUser(name, regNo, email, password);
+         });
+     </script>
 </body>
 
 </html>

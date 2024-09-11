@@ -30,6 +30,20 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <script>
+
+        // Handle form submission
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("login-form").addEventListener("submit", (e) => {
+                e.preventDefault();
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+                loginUser(email, password);
+            });
+        });
+    </script>
+
 </head>
 
 <body>
@@ -41,7 +55,6 @@
             </div>
         </div>
         <!-- Spinner End -->
-
 
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
@@ -62,13 +75,13 @@
                         <a href="team.html" class="nav-item nav-link">Our Team</a>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                         <div class="nav-item dropdown">
-                            <a href="login.html" class=" nav-link dropdown-toggle nav-link active" data-bs-toggle="dropdown">Join Us </a>
+                            <a href="login.html" class="nav-link dropdown-toggle nav-link active" data-bs-toggle="dropdown">Join Us</a>
                             <div class="dropdown-menu m-0">
-                                <a href="login.html" class="dropdown-item">Login </a>
+                                <a href="login.html" class="dropdown-item">Login</a>
                                 <a href="signin.html" class="dropdown-item">Sign Up</a>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </nav>
             <div class="container-xxl py-5 bg-primary hero-header mb-5">
@@ -76,25 +89,17 @@
         </div>
         <!-- Navbar & Hero End -->
 
-
         <!-- Login Form Start -->
         <div class="container-xxl py-5">
             <div class="container px-lg-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-7">
                         <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-                            <h6 class="position-relative d-inline text-primary ps-4">Login </h6>
-                            <h2 class="mt-2 text-primary">Login Now  </h2>
+                            <h2 class="mt-2 text-primary">Login Now</h2>
                         </div>
                         <div class="wow fadeInUp" data-wow-delay="0.3s">
-                            <form>
+                            <form id="login-form">
                                 <div class="row g-3">
-                                    <div class="col-md-12">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                            <label for="name">Your Name</label>
-                                        </div>
-                                    </div>
                                     <div class="col-md-12">
                                         <div class="form-floating">
                                             <input type="email" class="form-control" id="email" placeholder="Your Email">
@@ -103,12 +108,12 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <input type="password" class="form-control" id="Password" placeholder="Password">
-                                            <label for="Password">Password</label>
+                                            <input type="password" class="form-control" id="password" placeholder="Password">
+                                            <label for="password">Password</label>
                                         </div>
                                     </div>
                                     <div class="col-md-12 text-center">
-                                        <h5 style="color: #ffffff;">Don't Have Account ?<a href="signin.html" style="color: #ff8a00;"> Sign Up</a></h5>
+                                        <h5 style="color: #ffffff;">Don't Have Account? <a href="signin.html" style="color: #ff8a00;">Sign Up</a></h5>
                                     </div>
                                     <div class="col-12">
                                         <button class="btn btn-primary w-100 py-3" type="submit">Login</button>
@@ -121,7 +126,6 @@
             </div>
         </div>
         <!-- Login Form End -->
-        
 
         <!-- Footer Start -->
         <div class="container-fluid bg-primary text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -182,25 +186,20 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+      <!-- Firebase Login Script -->
+      <script src="./firebaseConfig.js" type="module"></script>
+       <!-- Login form submission -->
     <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyBg1RAWUGjcPUzljJE1AOBRz1Yqz7VNg4k",
-          authDomain: "ecellghrecm1.firebaseapp.com",
-          projectId: "ecellghrecm1",
-          storageBucket: "ecellghrecm1.appspot.com",
-          messagingSenderId: "462234501811",
-          appId: "1:462234501811:web:3400c04e97f7a0e2b4a6c6"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-      </script>
+        import { loginUser } from './firebaseConfig.js';
+        
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            await loginUser(email, password);
+        });
+    </script>
+
 </body>
 
 </html>
