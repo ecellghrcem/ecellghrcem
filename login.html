@@ -31,18 +31,43 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 
-    <script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+    
+        const firebaseConfig = {
+  apiKey: "AIzaSyBg1RAWUGjcPUzljJE1AOBRz1Yqz7VNg4k",
+  authDomain: "ecellghrecm1.firebaseapp.com",
+  projectId: "ecellghrecm1",
+  storageBucket: "ecellghrecm1.appspot.com",
+  messagingSenderId: "462234501811",
+  appId: "1:462234501811:web:3400c04e97f7a0e2b4a6c6"
+};
+ 
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
 
-        // Handle form submission
-        document.addEventListener("DOMContentLoaded", () => {
-            document.getElementById("login-form").addEventListener("submit", (e) => {
-                e.preventDefault();
-                const email = document.getElementById("email").value;
-                const password = document.getElementById("password").value;
-                loginUser(email, password);
-            });
+    // Login function
+    document.getElementById("login-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            // Redirect to homepage after successful login
+            window.location.href = 'index.html';
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error(`Error [${errorCode}]: ${errorMessage}`);
+            alert('Login failed: ' + errorMessage);
         });
-    </script>
+    });
+</script>
 
 </head>
 
@@ -186,19 +211,6 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-      <!-- Firebase Login Script -->
-      <script src="./firebaseConfig.js" type="module"></script>
-       <!-- Login form submission -->
-    <script type="module">
-        import { loginUser } from './firebaseConfig.js';
-        
-        document.getElementById('login-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            await loginUser(email, password);
-        });
-    </script>
 
 </body>
 

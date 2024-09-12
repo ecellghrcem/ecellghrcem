@@ -30,6 +30,24 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <script src="./firebaseConfig.js" type="module"></script>
+    <script type="module">
+        import { signUpUser } from './firebaseConfig.js';
+
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('sign-up-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const name = document.getElementById('name').value;
+                const regNo = document.getElementById('regNo').value;
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                await signUpUser(name, regNo, email, password);
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -102,11 +120,11 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-7">
                         <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-                            <h6 class="position-relative d-inline text-primary ps-4">Sign Up </h6>
-                            <h2 class="mt-2 text-primary">Sign Up Now  </h2>
+                            <h6 class="position-relative d-inline text-primary ps-4">Sign Up</h6>
+                            <h2 class="mt-2 text-primary">Sign Up Now</h2>
                         </div>
                         <div class="wow fadeInUp" data-wow-delay="0.3s">
-                            <form>
+                            <form id="sign-up-form">
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <div class="form-floating">
@@ -116,8 +134,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                            <label for="name">Registration Number</label>
+                                            <input type="text" class="form-control" id="regNo" placeholder="Registration Number">
+                                            <label for="regNo">Registration Number</label>
                                         </div>
                                     </div>
 
@@ -129,15 +147,15 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <input type="password" class="form-control" id="Password" placeholder="Password">
-                                            <label for="Password">Password</label>
+                                            <input type="password" class="form-control" id="password" placeholder="Password">
+                                            <label for="password">Password</label>
                                         </div>
                                     </div>
                                     <div class="col-md-12 text-center">
-                                        <h5 style="color: #fff;">Already Have an Account ?<a href="login.html" style="color: #ff8a00;"> Login</a></h5>
+                                        <h5 style="color: #fff;">Already Have an Account? <a href="login.html" style="color: #ff8a00;">Login</a></h5>
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3" type="submit">Login</button>
+                                        <button class="btn btn-primary w-100 py-3" type="submit">Sign Up</button>
                                     </div>
                                 </div>
                             </form>
@@ -212,17 +230,19 @@
      <script type="module">
          import { signUpUser } from './firebaseConfig.js';
  
-         document.getElementById('sign-up-form').addEventListener('submit', async (e) => {
-             e.preventDefault();
-             
-             const name = document.getElementById('name').value;
-             const regNo = document.getElementById('regNo').value;
-             const email = document.getElementById('email').value;
-             const password = document.getElementById('password').value;
- 
-             // Call the signUpUser function to handle registration
-             await signUpUser(name, regNo, email, password);
-         });
+         // In your main HTML file
+document.getElementById('signup-form').addEventListener('submit', async (e) => {
+  e.preventDefault();  // Prevent default form submission behavior
+
+  const name = document.getElementById('name').value;
+  const regNo = document.getElementById('regNo').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  // Call the signUpUser function to handle registration
+  await signUpUser(name, regNo, email, password);
+});
+
      </script>
 </body>
 
