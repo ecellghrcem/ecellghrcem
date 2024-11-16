@@ -148,6 +148,7 @@ body {
     p {
       position: relative;
       margin: 1rem 0 0;
+      color: #fff;
       &:first-of-type {
         margin-top: 1.25rem;
         &:before {
@@ -204,3 +205,15 @@ body {
       }
     }
   }
+  .blog-article {
+    max-width: 868px;
+    margin: 0 auto;
+    color: #fff;
+  }
+
+.img-fluid {
+    width: 90%;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgba(black, 0.2);
+}
